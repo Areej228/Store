@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Shopping Cart</title>
+
+    <style>
+          body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman';
+            font-size:medium;
+            background-image: url('e.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed; 
+        }
+        #cart {
+            border: 4px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #order-summary {
+            border: 4px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+        
+        }
+
+
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+    
+
+  header {
+    background-color: #34020a;
+    color: #fff;
+    padding: 20px;
+    display: flex; 
+    text-align: center;
+  }
+
+.logo-container {
+    margin-right:auto; 
+}
+
+.logo-container img {
+    height: 50px;
+}
+
+  nav {
+    background-color: #1e1d1d;
+    overflow: hidden;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  nav li {
+    float:left;
+  }
+
+  nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+  }
+
+  nav a:hover {
+    background-color: #f7f5f5;
+    color: rgb(66, 12, 104);
+  }
+
+  section {
+    padding: 40px;
+  }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 20px;
+  }
+  .grid-container > div {
+    max-width: 350px;
+    margin: 20px auto;
+    background-color: #f6f1f1;
+    padding: 20px;
+    gap: 5px;
+  }
+  .product-container {
+    margin: 20px auto;
+    background-color: #f6f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(101, 13, 145, 0.1);
+    display: grid;
+}
+
+
+.imagecontainer{
+    width: 400px;
+    height: 200px;
+    overflow: hidden;
+}
+.imagecontainer >img{
+    width: 400px;
+    height: 200px;
+    transition:scale 750ms ease-out,
+    filter 250ms ease-in-out;
+    width: 40%;
+    display: block;
+    align-items: center;
+}
+
+.imagecontainer :hover>img {
+    scale: 1.15;
+    filter: grayscale(0);
+
+}
+
+.product-details {
+    margin-top: 20px;
+}
+
+.product-price {
+    font-size: 1.5em;
+    color: #430c0c;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6714a3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.about-section {
+    padding: 50px;
+    font-weight: 150px;
+    font-size: xx-large;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    background-color: #0e0f0f;
+    color: #f7f5f5;
+    text-decoration-style: double;
+  }
+  .cardAbout{
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+  html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  width: 50%;
+  padding: 0 8px;
+  align-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+.card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+
+.container {
+  padding: 0 16px;
+  width: fit-content;
+  height: fit-content;
+}
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.title {
+  color: rgb(128, 13, 13);
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+
+  footer {
+            background-color: #250404;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        /* Style the links on hover */
+        .social-icons a:hover {
+            color: #ffc107;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+  <header>
+    <div class="logo-container">
+        <img src="e1.jpg" alt="Your Logo Alt Text">
+    </div>
+    <h1>CLICK AND BUY STORE</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Product Details</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  
+    <div class="container" style="padding:20px" id="product">
+        <h1 class="w3-center">Product-Details</h1>
+   
+
+    <div class="grid-container">
+        <section id="services">
+
+            <div class="product-container">
+                <div class="imagecontainer">
+                <img src="k.jpg" alt="Product Image">
+            </div>
+                <div class="product-details">
+                    <h2>Multifunctional Kitchen Chopping Artifact</h2>
+                    <p>Easy Chopping: This tool does it all – 
+                    chopping, slicing, and dicing made super simple. 
+                        No more struggling with knives; this little wonder makes cooking easy and fun!</p>
+                        <div class="product" data-id="1" data-name="Product 1" data-price="2500">
+                            <p>Rs 2500</p>
+                            <button onclick="addToCart(this)">Add to Cart</button>
+                        </div>
+                    </div>
+                    </div>
+            </section>
+            
+                        <div class="product-container">
+                            <div class="imagecontainer">
+                        <img class="product-image" src="lmp.jpg" alt="Product Image">
+                    </div>
+                        <div class="product-details">
+                            <h2>16-Color Diamond Rose Crystal Lamp (Premium Quality)</h2>
+                            <p>its USB rechargeable feature makes it easy to move around and place wherever you need it. 
+                                Whether you’re using it to create a relaxing ambiance in your bedroom or
+                                 to add a touch of elegance to your living room, the Diamond Rose Crystal Lamp
+                                  is sure to impress</p>
+                                  <div class="product" data-id="1" data-name="Product 1" data-price="1960">
+                                    <p>Rs 1960</p>
+                                    <button onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                        </div>
+                    </div>
+                        <div class="product-container">
+                            <div class="imagecontainer">
+                            <img class="product-image" src="br.jpg" alt="Product Image">
+                            </div>
+                            <div class="product-details">
+                                <h2>360° Degree Rotating Makeup Brush Holder with Dustproof Lid</h2>
+                                <p>360-degree rotation for easy access to your brushes
+                                    Dustproof lid keeps your brushes clean and protected
+                                    Ample storage space for brushes of all sizes
+                                    Modern and elegant design complements any vanity or bathroom décor
+                                    Easy to clean and maintain</p>
+                                    <div class="product" data-id="1" data-name="Product 1" data-price="999">
+                                        <p>Rs 999</p>
+                                        <button onclick="addToCart(this)">Add to Cart</button>
+                                    </div>
+                            </div>
+
+        </div>
+    </div>
+        
+    <div class="grid-container">
+        <div class="product-container">
+            <div class="imagecontainer">
+            <img class="product-image" src="cl.jpg" alt="Product Image">
+        </div>
+            <div class="product-details">
+                <h2>360° Rotatable Adjustable Cleaning Mop</h2>
+                <p>EMake cleaning your home a breeze with the 360° Rotatable Adjustable Cleaning Mop! 
+                    This innovative mop features a unique triangular design and 360° rotating head, making it easy to
+                     clean even the most hard-to-reach areas, such as corners, under furniture, and behind appliances</p>
+                     <div class="product" data-id="1" data-name="Product 1" data-price="20.00">
+                        <p>$20.00</p>
+                        <button onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+            </div>
+        </div>
+                    <div class="product-container">
+                        <div class="imagecontainer">
+                    <img class="product-image" src="brr.jpj.webp" alt="Product Image">
+                </div>
+                    <div class="product-details">
+                        <h2>Portable Hair Straightener Brush for Women and Men</h2>
+                        <p>The Hair Straightener Iron Brush is also great for curling your hair. 
+                            Simply wrap your hair around the bristles and hold it in place 
+                            for a few seconds. Then, release your hair and watch as it curls perfectly.</p>
+                            <div class="product" data-id="1" data-name="Product 1" data-price="2500">
+                                <p>Rs 2500</p>
+                                <button onclick="addToCart(this)">Add to Cart</button>
+                            </div>
+                    </div>
+                </div>
+                    <div class="product-container">
+                        <div class="imagecontainer">
+                        <img class="product-image" src="grr.jpg" alt="Product Image">
+                      </div>
+                        <div class="product-details">
+                            <h2>Multipurpose Masala Spice Grinder Machine</h2>
+                            <p> Powerful motor for efficient grinding.
+                                Durable stainless steel blades for fine grindind.Multiple grinding jars for 
+                                varied capacities.Easy-to-clean design for effortless maintenance.
+                                Multipurpose versatility for grinding spices, herbs, nuts, and more</p>
+                                <div class="product" data-id="1" data-name="Product 1" data-price="2290">
+                                    <p>Rs 2290</p>
+                                    <button onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                        </div>
+    </div>
+</div>
+    
+    <div class="grid-container">
+        <div class="product-container">
+            <div class="imagecontainer">
+            <img class="product-image" src="ma.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h2>3 in 1 Multifunctional Vegetable Cutter & Slicer</h2>
+                <p>Three interchangeable blades for slicing, dicing, and julienning
+                    Large capacity hopper for efficient processing
+                    Ergonomic handle for comfortable and safe operation
+                    Compact and dishwasher-safe design for easy storage and cleaning</p>
+                    <div class="product" data-id="1" data-name="Product 1" data-price="1999">
+                        <p>Rs 1999</p>
+                        <button onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+                    <div class="product-container">
+                        <div class="imagecontainer">
+                    <img class="product-image" src="j.jpg" alt="Product Image">
+                    </div>
+                    <div class="product-details">
+                        <h2>Winter Jacket Sleeveless, For Boys and For Men's</h2>
+                        <p>This Jacket is made ofpremium stuff and it is best for winters use. 
+                        It has style as well as verylight weight and comfortable to wear.
+                         You will adore its quality as it willalways be there to keep you warm﻿ High Quality</p>
+                         <div class="product" data-id="1" data-name="Product 1" data-price="999">
+                            <p>Rs 999</p>
+                            <button onclick="addToCart(this)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                    <div class="product-container">
+                        <div class="imagecontainer">
+                        <img class="product-image" src="bag.jpg" alt="Product Image">
+                        </div>
+                        <div class="product-details">
+                            <h2>Bag X Luxury 3 piece Bag set Women's </h2>
+                            <p>3 pcs Women Soft PU Leather Handbags Three Pieces Set Women Tote Hand Bag Ladies 
+                                Handbags SetNew Stylish design of lady BagMaterial: PU + LeatherSurface: SoftSize: 
+                                Large x Medium x 
+                                smallLarge;33cm x30cmMedium;21cm x 17cmSmall;21cm x 12cmColor: Pink, black, cream, 
+                                brown, redWeight: 260g</p>
+                                <div class="product" data-id="1" data-name="Product 1" data-price="3099.00">
+                                    <p>RS 3099.00</p>
+                                    <button onclick="addToCart(this)">Add to Cart</button>
+                                </div>
+                        </div>
+                                    </div>  
+    </div>
+
+              
+<div class="cardc">
+    <div class="row">
+      <div class="column">
+            <div id="cart">
+                <h2>Shopping Cart</h2>
+                <ul id="cart-items"></ul>
+                <p>Total: Rs <span id="total">0.00</span></p>
+                <button onclick="confirmOrder()">Confirm Order</button>
+            </div>
+      </div>
+
+                                    <div class="column">
+                                    <div id="order-summary">
+                                    <h2>Order Summary</h2>
+                                    <ul id="order-items"></ul>
+                                    <p>Total: Rs <span id="order-total">0.00</span></p>
+                                    <button>Thank You</button>
+                                </div>
+    </div>
+    </div>
+    </div>
+
+<section id="about">
+    <div class="cardAbout">
+  <h1 style="text-align:center">About Us </h1>
+  <p>At Click and buy store we're more than just an online store.
+     We're your destination for providing home best products.
+     Since our establishment in 2023, we've been committed to providing high-quality products, 
+     exceptional customer service</p>
+  <p>Thank you for choosing Click and buy store as your go-to destination for home products. 
+    We're passionate about delivering quality, style, and an exceptional shopping experience. 
+    Explore our collection and let us be a part of your journey!</p>
+</div>
+</section>
+
+<div class="card">
+<h1 style="text-align:center">Our Team</h1>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="containerteam">
+        <h2>Mr Baber</h2>
+        <p class="title">CEO & Founder</p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <div class="containerteam">
+        <h2>Miss Areej</h2>
+        <p class="title">Team member</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<script>
+    // JavaScript logic
+    const cartItems = document.getElementById('cart-items');
+    const orderItems = document.getElementById('order-items');
+    const totalElement = document.getElementById('total');
+    const orderTotalElement = document.getElementById('order-total');
+
+    function addToCart(button) {
+        const product = button.parentNode;
+        const productId = product.dataset.id;
+        const productName = product.dataset.name;
+        const productPrice = parseFloat(product.dataset.price);
+
+        // Create a new cart item
+        const cartItem = document.createElement('li');
+        cartItem.textContent = `${productName} - $${productPrice.toFixed(2)}`;
+
+        // Add the item to the cart
+        cartItems.appendChild(cartItem);
+
+        // Update the total
+        updateTotal(productPrice);
+    }
+
+    function updateTotal(price) {
+        const currentTotal = parseFloat(totalElement.textContent);
+        const newTotal = currentTotal + price;
+        totalElement.textContent = newTotal.toFixed(2);
+    }
+
+    function confirmOrder() {
+        // Move cart items to order summary
+        const cartItemElements = cartItems.children;
+        for (const cartItem of cartItemElements) {
+            const orderItem = document.createElement('li');
+            orderItem.textContent = cartItem.textContent;
+            orderItems.appendChild(orderItem);
+        }
+
+        // Update order total
+        const cartTotal = parseFloat(totalElement.textContent);
+        const currentOrderTotal = parseFloat(orderTotalElement.textContent);
+        const newOrderTotal = currentOrderTotal + cartTotal;
+        orderTotalElement.textContent = newOrderTotal.toFixed(2);
+
+        // Clear the cart
+        cartItems.innerHTML = '';
+        totalElement.textContent = '0.00';
+    }
+
+</script>
+
+</body>
+
+<footer>
+    <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- Add more social media icons as needed -->
+      </div>
+    <div class="copyright">
+        &copy; 2023 || CLICK AND BUY STORE
+    </div>
+</footer>
+</html>
